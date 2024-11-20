@@ -1,5 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Image from "next/image";
+import Footer from "@/componentes/Footer";
+import PokemonPage from "@/componentes/pokemon";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,9 +24,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <header><Image src="/componentes/imagenes/logo.png" width="500" height="400" alt="Cabecera del sitio"/> </header>
+        <main>{children}</main>
+        <Footer/>
+        <PokemonPage/>
       </body>
     </html>
   );
