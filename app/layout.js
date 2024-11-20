@@ -3,6 +3,7 @@ import "./globals.css";
 import Image from "next/image";
 import Footer from "@/componentes/Footer";
 import PokemonPage from "@/componentes/pokemon";
+import { Suspense } from "react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,7 +27,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <header><Image src="/componentes/imagenes/logo.png" width="500" height="400" alt="Cabecera del sitio"/> </header>
+        <Suspense fallback={"Cargando..."  }>
+
         <main>{children}</main>
+        </Suspense>
         <Footer/>
         <PokemonPage/>
       </body>
